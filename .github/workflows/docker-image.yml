@@ -25,4 +25,4 @@ jobs:
       env:
           DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
     - name: docker push latest
-        run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
+      run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
