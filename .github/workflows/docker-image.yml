@@ -7,11 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-
-  build:
-
+  build: Docker Image Build and Push to ACR
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: docker login
@@ -26,3 +23,8 @@ jobs:
           DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
     - name: docker push latest
       run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
+  deploy: Docker-Compose
+    runs-on: self-hosted-ubuntu
+    steps:
+    - name: docker version
+      run: docker version
