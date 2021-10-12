@@ -27,6 +27,7 @@ jobs:
     - name: docker push
       run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
   deploy:
+    needs: [build]
     runs-on: self-hosted
     
     steps:
