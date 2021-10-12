@@ -32,6 +32,8 @@ jobs:
     
     steps:
     - name: docker version
-      run: docker version
-      
+      run: |
+       docker version
+       cd /home/ubuntu/
+       docker-compose up -d
         
