@@ -31,9 +31,6 @@ jobs:
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=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
         export VERSION_TAG=$GITHUB_SHA
-        mkdir compose
-        cd compose
-        git init
         git config --global user.email "saikrishna.g@snp.com"
         git config --global user.name $GITHUB_USER
         git clone https://github.com/$GITHUB_USER/docker-compose.git
@@ -43,4 +40,4 @@ jobs:
         git add .
         git commit -m "Updating node application latest image tag in docker-compose.yml file"
         # git push --force --quiet "https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git" main:main
-        git push origin main --force
+        git push origin
