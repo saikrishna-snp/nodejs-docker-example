@@ -39,5 +39,4 @@ jobs:
         cat docker-compose/docker-compose.yml
         git add .
         git commit -m "Updating node application latest image tag in docker-compose.yml file"
-        # git push --force --quiet "https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git" main:main
-        git push origin
+        git push --force --quiet "https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git" main:main
