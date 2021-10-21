@@ -32,5 +32,5 @@ jobs:
         cd second-repo
         git clone https://github.com/saikrishna-snp/docker-compose.git
         ls -lrth
-        
+        cat docker-compose.yml
         
