@@ -26,4 +26,11 @@ jobs:
         DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
     - name: docker push
       run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
+    - name: Updating tag in docker-compose.yaml file
+      run: |
+        mkdir second-repo
+        cd second-repo
+        git clone https://github.com/saikrishna-snp/docker-compose.git
+        ls -lrth
+        
         
