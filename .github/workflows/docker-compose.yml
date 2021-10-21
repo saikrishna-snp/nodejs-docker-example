@@ -29,5 +29,5 @@ jobs:
     - name: Updating tag in docker-compose.yaml file
       run: |
         git clone https://github.com/saikrishna-snp/docker-compose.git
-        cat docker-compose/docker-compose.yml
+        echo $GITHUB_SHA
         
