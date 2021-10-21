@@ -31,7 +31,7 @@ jobs:
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=${{ secrets.PAT_TOKEN }}
         export VERSION_TAG=$GITHUB_SHA        
-        git clone https://github.com/$GITHUB_USER/docker-compose.git
+        git clone https://github.com/$GITHUB_USER/docker-compose.git --branch=main
         git init
         git config --global user.email "saikrishna.g@snp.com"
         git config --global user.name $GITHUB_USER        
@@ -39,7 +39,5 @@ jobs:
         cat docker-compose/docker-compose.yml
         git add .
         git commit -m "Updating node application latest image tag in docker-compose.yml file"
-        git branch -M main
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git
-        git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
         git push --force --quiet "https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git" main:main
