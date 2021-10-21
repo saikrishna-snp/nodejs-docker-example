@@ -28,8 +28,12 @@ jobs:
       run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
     - name: Updating tag in docker-compose.yaml file
       run: |
-        git clone https://github.com/saikrishna-snp/docker-compose.git
+        export GITHUB_USER=saikrishna-snp
+        # export GITHUB_TOKEN=${{ secrets.COMPOSE_TOKEN }}
         export VERSION_TAG=$GITHUB_SHA
+        git config --global user.email "saikrishna.g@snp.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/docker-compose.git
         sed -i "s/nodeapp/nodeapp:$VERSION_TAG/" docker-compose/docker-compose.yml
         cat docker-compose/docker-compose.yml
         git add .
