@@ -37,7 +37,7 @@ jobs:
         git init
         git config --global user.email "saikrishna.g@snp.com"
         git config --global user.name $GITHUB_USER        
-        sed -i "s/nodeapp/nodeapp:$VERSION_TAG/" docker-compose/docker-compose.yml
+        sed -i "s/nodeapp/nodeapp:$VERSION_TAG/" docker-compose.yml
         cat docker-compose/docker-compose.yml
         git add .
         git commit -m "Updating node application latest image tag in docker-compose.yml file"
