@@ -29,5 +29,8 @@ jobs:
     - name: Updating tag in docker-compose.yaml file
       run: |
         git clone https://github.com/saikrishna-snp/docker-compose.git
-        echo $GITHUB_SHA
+        sed -i "s/nodeapp/nodeapp:$VERSION_TAG/" docker-compose/docker-compose.yml
+        cat docker-compose/docker-compose.yml
+      env:
+        VERSION_TAG: $GITHUB_SHA
         
