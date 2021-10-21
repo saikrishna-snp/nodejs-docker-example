@@ -41,4 +41,5 @@ jobs:
         git commit -m "Updating node application latest image tag in docker-compose.yml file"
         git branch -M main
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git
+        git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
         git push --force --quiet "https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git" main:main
