@@ -31,6 +31,9 @@ jobs:
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=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
         export VERSION_TAG=$GITHUB_SHA
+        mkdir compose
+        cd compose
+        git init
         git config --global user.email "saikrishna.g@snp.com"
         git config --global user.name $GITHUB_USER
         git clone https://github.com/$GITHUB_USER/docker-compose.git
