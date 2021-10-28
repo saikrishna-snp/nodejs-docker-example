@@ -34,12 +34,9 @@ jobs:
         path: docker-compose
     - name: Updating tag in docker-compose.yaml file
       run: |
-        ls -lrth
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=${{ secrets.PAT_TOKEN }}
-        export VERSION_TAG=$GITHUB_SHA        
-        # git clone https://github.com/$GITHUB_USER/docker-compose.git --branch=main docker-compose
-        cd docker-compose
+        export VERSION_TAG=$GITHUB_SHA
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git
         git init
         git config --global user.email "saikrishna.g@snp.com"
