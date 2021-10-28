@@ -35,8 +35,6 @@ jobs:
     - name: Updating tag in docker-compose.yaml file
       run: |
         ls -lrth
-        cd my-tools
-        ls -lrth
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=${{ secrets.PAT_TOKEN }}
         export VERSION_TAG=$GITHUB_SHA        
