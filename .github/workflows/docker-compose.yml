@@ -31,7 +31,7 @@ jobs:
       with:
         repository: saikrishna-snp/docker-compose
         token: ${{ secrets.PAT_TOKEN }}
-        path: my-tools
+        path: docker-compose
     - name: Updating tag in docker-compose.yaml file
       run: |
         ls -lrth
@@ -40,7 +40,7 @@ jobs:
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=${{ secrets.PAT_TOKEN }}
         export VERSION_TAG=$GITHUB_SHA        
-        git clone https://github.com/$GITHUB_USER/docker-compose.git --branch=main docker-compose
+        # git clone https://github.com/$GITHUB_USER/docker-compose.git --branch=main docker-compose
         cd docker-compose
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/docker-compose.git
         git init
