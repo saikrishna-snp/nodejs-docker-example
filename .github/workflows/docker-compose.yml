@@ -26,8 +26,15 @@ jobs:
         DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
     - name: docker push
       run: docker push ${{ secrets.DOCKER_REGISTRY }}/nodejs:latest
+    - name: cloning docker-compose repo
+      uses: actions/checkout@v2
+      with:
+        repository: saikrishna-snp/docker-compose
+        token: ${{ secrets.PAT_TOKEN }}
+        path: my-tools
     - name: Updating tag in docker-compose.yaml file
       run: |
+        ls -lrth
         export GITHUB_USER=saikrishna-snp
         export GITHUB_TOKEN=${{ secrets.PAT_TOKEN }}
         export VERSION_TAG=$GITHUB_SHA        
