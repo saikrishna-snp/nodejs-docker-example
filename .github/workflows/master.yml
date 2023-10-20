@@ -9,12 +9,12 @@ permissions:
 
 jobs:
   sample:
-    name: MSDO on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: MSDO
+    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest]
+    # strategy:
+    #   matrix:
+    #     os: [windows-latest, ubuntu-latest]
 
     steps:
       
